@@ -19,15 +19,10 @@
 }
 
 .rates{
-  border-radius: 5px;
-  border: 2px;
-  border-style:ridge;
   display:flex;
   margin-top:20px;
-  margin-left :30px;
 }
 ul.rate{
-  margin-right: 10px;
   list-style-type:none;
   font-size: 22px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
