@@ -100,19 +100,21 @@ export default class Carousel extends Component {
                 </p>
               </div>
             </div>
-            <div className="card">
+            <div className="card my-2">
               <img
-                src="https://i.picsum.photos/id/1015/6000/4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I"
-                className="card-img-top"
+                src="https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY"
+                className="card-img-top w-100"
                 alt="..."
               ></img>
-              <div className="card-body">
+              <div className="card-body ">
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
               </div>
             </div>
+            
+            
           </div>
         </div>
       </div>
