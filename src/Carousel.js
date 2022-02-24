@@ -118,6 +118,8 @@ export default class Carousel extends Component {
           </div>
         </div>
       </div>
+      
+
     );
   }
 }
