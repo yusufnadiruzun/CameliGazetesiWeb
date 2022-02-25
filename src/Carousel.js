@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class Carousel extends Component {
+
+  write(){
+    console.log('eben')
+  }
   render() {
     return (
       <div className="container mt-4">
@@ -35,11 +39,12 @@ export default class Carousel extends Component {
                 ></button>
               </div>
               <div className="carousel-inner" style={{ height: "600px" }}>
-                <div className="carousel-item active">
+                <div className="carousel-item active" onClick={this.write}>
                   <img
                     src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE"
                     className="d-block w-100"
                     style={{ height: "600px" }}
+                    
                     alt="..."
                   ></img>
                 </div>
@@ -118,7 +123,7 @@ export default class Carousel extends Component {
           </div>
         </div>
       </div>
-      
+
 
     );
   }

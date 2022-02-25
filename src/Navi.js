@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 export default class Navi extends Component {
+
   render() {
     return (
+
         <div >
           <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <div className="container-fluid">

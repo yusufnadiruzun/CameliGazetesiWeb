@@ -7,7 +7,7 @@ import React, { Component } from "react";
 
 export default class App extends Component {
 
-  state = { data: [] };
+  state = { data: [], newId : 0};
 
   async getNews() {
     await fetch("http://localhost:5500/api/get").then((response) =>
@@ -18,6 +18,11 @@ export default class App extends Component {
     ); 
     
   }
+  takeId = (id) => {
+    this.setState({newId : id})
+    console.log(id)
+  }
+
 
   componentDidMount() {
     this.getNews();
@@ -29,8 +34,9 @@ export default class App extends Component {
       <div>
         <Navi></Navi>
         <NaviCategory></NaviCategory>
+     
         <Carousel></Carousel>
-        <Cards info={this.state.data}></Cards>
+        <Cards newInfo = {this.takeId} info={this.state.data}></Cards>
       </div>
     );
   }
