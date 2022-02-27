@@ -5,12 +5,13 @@ import Carousel from "./Carousel";
 import Cards from "./Cards";
 import React, { Component } from "react";
 
+
 export default class App extends Component {
 
   state = { data: [], newId : 0};
 
   async getNews() {
-    await fetch("http://localhost:5500/api/get").then((response) =>
+    await fetch("http://localhost:5500/getNews").then((response) =>
       response
         .json()
         .then((json) => this.setState({ data: json }))
@@ -18,13 +19,25 @@ export default class App extends Component {
     ); 
     
   }
+
+async getNew(){
+       await fetch("http://localhost:5500/getNew",{
+        method :'POST',
+        body : JSON.stringify({newId : this.state.newId}),
+        headers : {
+            "Content-type" : "application/json; charset=UTF-8"
+        }
+    
+    }).then(response => response.json()).then(json => console.log(json))
+  }
   takeId = (id) => {
     this.setState({newId : id})
+    this.getNew();
     console.log(id)
   }
 
 
-  componentDidMount() {
+  componentDidMount(){
     this.getNews();
    
   }

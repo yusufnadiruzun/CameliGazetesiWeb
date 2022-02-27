@@ -3,24 +3,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 export default class NaviCategory extends Component {
   
-  getRate = () => {
-    var data = null;
-    var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+  // getRate = () => {
+  //   var data = null;
+  //   var xhr = new XMLHttpRequest();
+  //   xhr.withCredentials = true;
 
-    xhr.addEventListener("readystatechange", function () {
-      if (this.readyState === this.DONE) {
-        console.log(this.responseText);
-      }
-    });
+  //   xhr.addEventListener("readystatechange", function () {
+  //     if (this.readyState === this.DONE) {
+  //       console.log(this.responseText);
+  //     }
+  //   });
 
-    xhr.open("GET", "https://api.collectapi.com/economy/cripto");
-    xhr.setRequestHeader("content-type", "application/json");
-    xhr.setRequestHeader("authorization", "apikey your_token");
+  //   xhr.open("GET", "https://api.collectapi.com/economy/cripto");
+  //   xhr.setRequestHeader("content-type", "application/json");
+  //   xhr.setRequestHeader("authorization", "apikey your_token");
 
-    xhr.send(data);
-    console.log(data)
-  };
+  //   xhr.send(data);
+  //   console.log(data)
+  // };
 
   render() {
     return (
