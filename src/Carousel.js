@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Cards from './Cards'
 export default class Carousel extends Component {
 
   write(){
@@ -118,11 +118,14 @@ export default class Carousel extends Component {
                 </p>
               </div>
             </div>
-            
+             
             
           </div>
         </div>
+       
       </div>
+      
+      
 
 
     );

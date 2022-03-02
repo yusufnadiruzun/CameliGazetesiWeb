@@ -11,7 +11,7 @@ export default class Cards extends Component {
             <div className="col-sm-12 col-md-6 col-lg-3 col-xl-3" key={news.id}>
             <div className="card my-2">
               <img
-                src ={news.image} style={{width:'214px', height:'214px'}} onClick={() => this.props.newInfo(news.id)} 
+                src ={news.image} style={{width:'214px', height:'214px'}} onClick={() => this.props.newInfo(news.id,news.Desciription)} 
                 className="card-img-top w-100"
                 alt="..."
               ></img>
