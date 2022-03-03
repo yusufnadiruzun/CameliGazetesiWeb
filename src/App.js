@@ -27,9 +27,7 @@ export default class App extends Component {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json)).catch(err => console.log(err));
+    }).then((response) => response.json()).then((json) => console.log(json)).catch(err => console.log(err));
 
     console.log(this.state.path);
     console.log(this.state.newId);

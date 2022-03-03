@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cards from './Cards'
+import Cards from "./Cards";
 export default class Carousel extends Component {
-
-  write(){
-    console.log('eben')
+  write() {
+    console.log("eben");
   }
   render() {
     return (
@@ -12,14 +11,14 @@ export default class Carousel extends Component {
         <div className="row">
           <div className="col-sm-12 col-lg-9 pe-4">
             <div
-              id="carouselExampleIndicators"
-              className="carousel slide "
+              id="carouselExampleDark"
+              className="carousel carousel-dark slide"
               data-bs-ride="carousel"
             >
               <div className="carousel-indicators">
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#carouselExampleDark"
                   data-bs-slide-to="0"
                   className="active"
                   aria-current="true"
@@ -27,48 +26,68 @@ export default class Carousel extends Component {
                 ></button>
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#carouselExampleDark"
                   data-bs-slide-to="1"
                   aria-label="Slide 2"
                 ></button>
                 <button
                   type="button"
-                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-target="#carouselExampleDark"
                   data-bs-slide-to="2"
                   aria-label="Slide 3"
                 ></button>
               </div>
-              <div className="carousel-inner" style={{ height: "600px" }}>
-                <div className="carousel-item active" onClick={this.write}>
-                  <img
-                    src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE"
-                    className="d-block w-100"
-                    style={{ height: "600px" }}
-                    
-                    alt="..."
-                  ></img>
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src="https://scontent.fsaw2-1.fna.fbcdn.net/v/t39.30808-6/273902528_1700321783647889_1847937133427688023_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=Ba4muBEhxJUAX8rWLRW&_nc_oc=AQlxXwIHcYayj5aBO0SOO313oKoMDuFI4LEoCq8lvC0oYFFkyIXQ4-OVUNdZue0jJPA&_nc_ht=scontent.fsaw2-1.fna&oh=00_AT-_3gN6T8Shjmc3q61u5tPi1ZRD7o--dUDAABVUN1NzOw&oe=62181D22"
-                    className="d-block w-100"
-                    style={{ height: "600px" }}
-                    alt="..."
-                  ></img>
-                </div>
-                <div className="carousel-item">
+              <div className="carousel-inner " style={{ height: "600px" }}>
+                <div className="carousel-item active" data-bs-interval="10000">
                   <img
                     src="https://i.picsum.photos/id/1018/3914/2935.jpg?hmac=3N43cQcvTE8NItexePvXvYBrAoGbRssNMpuvuWlwMKg"
                     className="d-block w-100"
-                    style={{ height: "600px" }}
                     alt="..."
+                    style={{ height: "600px" }}
                   ></img>
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>
+                      Some representative placeholder content for the first
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div className="carousel-item" data-bs-interval="2000">
+                  <img
+                    src="https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE"
+                    className="d-block w-100"
+                    alt="..."
+                    style={{ height: "600px" }}
+                  ></img>
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>
+                      Some representative placeholder content for the second
+                      slide.
+                    </p>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/9527445/pexels-photo-9527445.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    className="d-block w-100"
+                    alt="..."
+                    style={{ height: "600px" }}
+                  ></img>
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>
+                      Some representative placeholder content for the third
+                      slide.
+                    </p>
+                  </div>
                 </div>
               </div>
               <button
                 className="carousel-control-prev"
                 type="button"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target="#carouselExampleDark"
                 data-bs-slide="prev"
               >
                 <span
@@ -80,7 +99,7 @@ export default class Carousel extends Component {
               <button
                 className="carousel-control-next"
                 type="button"
-                data-bs-target="#carouselExampleIndicators"
+                data-bs-target="#carouselExampleDark"
                 data-bs-slide="next"
               >
                 <span
@@ -90,6 +109,11 @@ export default class Carousel extends Component {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
+            <div
+              id="carouselExampleIndicators"
+              className="carousel slide "
+              data-bs-ride="carousel"
+            ></div>
           </div>
           <div className="col-sm-12 col-lg-3 ">
             <div className="card my-2">
@@ -118,16 +142,9 @@ export default class Carousel extends Component {
                 </p>
               </div>
             </div>
-             
-            
           </div>
         </div>
-       
       </div>
-      
-      
-
-
     );
   }
 }
