@@ -8,7 +8,7 @@ import Report from "./Report";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default class App extends Component {
-  state = { data: [], newId: 0, path: "haber" };
+  state = { data: [], newId: 0, path: "path" };
 
   async getNews() {
     await fetch("http://localhost:5500/getNews").then((response) =>
@@ -20,25 +20,36 @@ export default class App extends Component {
   }
 
   async getNew() {
-    
     await fetch("http://localhost:5500/getNew", {
       method: "POST",
-      body: JSON.stringify({newId : this.state.newId}),
+      body: JSON.stringify({ newId: this.state.newId }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((response) => response.json()).then((json) => console.log(json)).catch(err => console.log(err));
-
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
+    console.log("asdsqdaklsjdajsk");
     console.log(this.state.path);
     console.log(this.state.newId);
+    
   }
   takeId = (id, newPath) => {
-    this.setState({ newId: id, path: newPath });
-    this.getNew();
+    this.state.newId = id;
+    console.log(this.state.path);
+    this.state.path =  newPath.trim().replaceAll(" ", "-")
+    console.log(this.state.path);
 
-    //  window.location.href = `http://localhost:3000/${this.state.path}`;
-
-    console.log(id);
+    console.log(`/cameligazetesi.com/${this.state.path}`)
+    console.log('/cameligazetesi.com/' +this.state.path);
+    this.getNew();  
+   
+    setTimeout(() => {
+      window.location.href = 'http://localhost:3000/cameligazetesi.com/' +this.state.path;
+    
+    }, 2000);
+    
   };
 
   componentDidMount() {
@@ -53,7 +64,7 @@ export default class App extends Component {
         <BrowserRouter>
           <Routes>
             <Route
-              path="/cameligazetesi"
+              path="/cameligazetesi.com"
               element={
                 <div>
                   <Carousel></Carousel>
@@ -61,7 +72,7 @@ export default class App extends Component {
                 </div>
               }
             />
-            <Route path={this.state.path} element={<Report></Report>} />
+            <Route path={"/cameligazetesi.com/" +this.state.path} element={<Report></Report>} />
           </Routes>
         </BrowserRouter>
       </div>

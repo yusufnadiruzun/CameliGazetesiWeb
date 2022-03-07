@@ -7,7 +7,7 @@ export default class Navi extends Component {
     return (
 
         <div >
-          <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+          <nav className="navbar navbar-expand-lg navbar-light bg-dark" >
             <div className="container-fluid">
               <img
                 className="logoFirst"
