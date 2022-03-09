@@ -33,23 +33,21 @@ export default class App extends Component {
     console.log("asdsqdaklsjdajsk");
     console.log(this.state.path);
     console.log(this.state.newId);
-    
   }
   takeId = (id, newPath) => {
     this.state.newId = id;
     console.log(this.state.path);
-    this.state.path =  newPath.trim().replaceAll(" ", "-")
+    this.state.path = newPath.trim().replaceAll(" ", "-");
     console.log(this.state.path);
 
-    console.log(`/cameligazetesi.com/${this.state.path}`)
-    console.log('/cameligazetesi.com/' +this.state.path);
-    this.getNew();  
-   
+    console.log(`/cameligazetesi.com/${this.state.path}`);
+    console.log("/cameligazetesi.com/" + this.state.path);
+    this.getNew();
+
     setTimeout(() => {
-      window.location.href = 'http://localhost:3000/cameligazetesi.com/' +this.state.path;
-    
+      window.location.href =
+        "http://localhost:3000/cameligazetesi.com/" + this.state.path;
     }, 2000);
-    
   };
 
   componentDidMount() {
@@ -72,7 +70,14 @@ export default class App extends Component {
                 </div>
               }
             />
-            <Route path={"/cameligazetesi.com/" +this.state.path} element={<Report></Report>} />
+            <Route
+              path={"/cameligazetesi.com/:newId" + this.state.path}
+              element={<Report></Report>}
+            />
+             <Route
+              path={'*'}
+              element={<div> ERROR </div>}
+            />
           </Routes>
         </BrowserRouter>
       </div>
