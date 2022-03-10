@@ -1,48 +1,43 @@
 import React, { Component } from "react";
 
-export default class report extends Component {
+export default class Report extends Component {
+  componentDidMount(){
+    console.log(this.props.data)
+    console.log(this.props.id)
+  }
   render() {
     return (
       <div className="container">
         <div className="row mt-3">
-          <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
-            <h1> Denizlide Trafik Kazası </h1>
+          {this.props.data.map(reports => (
+          <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 " >
+            <h1> {reports.Desciription}</h1>
             <p className="firstP">
-              Notice the use of %PUBLIC_URL% in the tags above. It will be
-              replaced with the URL of the `public` folder during the build.
-              Only files inside the `public` folder can be referenced from the
-              HTML. Unlike "/favicon.ico" or "favicon.ico",
-              "%PUBLIC_URL%/favicon.ico" will work correctly both with
-              client-side routing and a non-root public URL. Learn how to
-              configure a non-root public URL by running `npm run build`.
+              {reports.report}
             </p>
             <img
-              src="https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY"
+              src={reports.image}
               style={{ width: "100%", heigth: "400px" }}
             ></img>
             <p>
               {" "}
-              Notice the use of %PUBLIC_URL% in the tags above. It will be
-              replaced with the URL of the `public` folder during the build.
-              Only files inside the `public` folder can be referenced from the
-              HTML. Unlike "/favicon.ico" or "favicon.ico",
-              "%PUBLIC_URL%/favicon.ico" will work correctly both with
-              client-side routing and a non-root public URL. Learn how to
-              configure a non-root public URL by running `npm run build`.
+              {reports.report}
             </p>
             <img
-              src="https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY"
-              style={{ width: "100%", heigth: "400px", marginTop:'5px' }}
+              src={reports.image}
+              style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>{" "}
             <img
-              src="https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY"
-              style={{ width: "100%", heigth: "400px" , marginTop:'5px'}}
+              src={reports.image}
+              style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>
             <img
-              src="https://i.picsum.photos/id/1005/5760/3840.jpg?hmac=2acSJCOwz9q_dKtDZdSB-OIK1HUcwBeXco_RMMTUgfY"
-              style={{ width: "100%", heigth: "400px" , marginTop:'5px'}}
+              src={reports.image}
+              style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>
+           
           </div>
+           ))}
           <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4">
             <div className="card my-2">
               <img

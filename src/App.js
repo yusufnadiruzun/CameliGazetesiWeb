@@ -8,7 +8,7 @@ import Report from "./Report";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default class App extends Component {
-  state = { data: [], newId: 0, path: "path" };
+  state = { data: [], newId: 0, path: "path" , newReport : []};
 
   async getNews() {
     await fetch("http://localhost:5500/getNews").then((response) =>
@@ -28,26 +28,24 @@ export default class App extends Component {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json))
+      .then((json) => this.setState({ newReport : json}))
       .catch((err) => console.log(err));
-    console.log("asdsqdaklsjdajsk");
-    console.log(this.state.path);
-    console.log(this.state.newId);
-  }
-  takeId = (id, newPath) => {
-    this.state.newId = id;
-    console.log(this.state.path);
-    this.state.path = newPath.trim().replaceAll(" ", "-");
-    console.log(this.state.path);
-
-    console.log(`/cameligazetesi.com/${this.state.path}`);
-    console.log("/cameligazetesi.com/" + this.state.path);
-    this.getNew();
-
+      console.log("new report",this.state.newReport)
     setTimeout(() => {
       window.location.href =
         "http://localhost:3000/cameligazetesi.com/" + this.state.path;
     }, 2000);
+  }
+
+  takeId = (id, newPath) => {
+    this.state.newId = id;
+    
+    this.state.path = newPath.trim().replaceAll(" ", "-");
+   
+    this.getNew();
+    console.log('pathhhh',this.state.path);
+    console.log('reportt',this.state.newReport);
+   
   };
 
   componentDidMount() {
@@ -72,7 +70,7 @@ export default class App extends Component {
             />
             <Route
               path={"/cameligazetesi.com/:newId" + this.state.path}
-              element={<Report></Report>}
+              element={<Report data = {this.state.newReport} id = {this.state.newId}></Report>}
             />
              <Route
               path={'*'}
