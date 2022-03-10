@@ -31,25 +31,26 @@ export default class App extends Component {
       .then((json) => this.setState({ newReport : json}))
       .catch((err) => console.log(err));
       console.log("new report",this.state.newReport)
+    
+
+  }
+
+  takeId = (id, newPath) => {
+    this.state.newId = id;    
+    this.state.path = newPath.trim().replaceAll(" ", "-");
+    this.getNew();
+    console.log('pathhhh',this.state.path);
+    console.log('reportt',this.state.newReport);
     setTimeout(() => {
       window.location.href =
         "http://localhost:3000/cameligazetesi.com/" + this.state.path;
     }, 2000);
-  }
-
-  takeId = (id, newPath) => {
-    this.state.newId = id;
-    
-    this.state.path = newPath.trim().replaceAll(" ", "-");
-   
-    this.getNew();
-    console.log('pathhhh',this.state.path);
-    console.log('reportt',this.state.newReport);
    
   };
 
   componentDidMount() {
     this.getNews();
+    this.getNew();
   }
 
   render() {
@@ -69,7 +70,7 @@ export default class App extends Component {
               }
             />
             <Route
-              path={"/cameligazetesi.com/:newId" + this.state.path}
+              path={"/cameligazetesi.com/:" + this.state.path}
               element={<Report data = {this.state.newReport} id = {this.state.newId}></Report>}
             />
              <Route
