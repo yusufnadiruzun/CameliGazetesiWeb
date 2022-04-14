@@ -7,6 +7,7 @@ export default class Report extends Component {
   }
   render() {
     return (
+      /*
       <div className="container">
         <div className="row mt-3">
           {this.props.data.map(reports => (
@@ -110,6 +111,9 @@ export default class Report extends Component {
           </div>
         </div>
       </div>
+      */
+    <div>asdklaskds</div>
     );
+     
   }
 }

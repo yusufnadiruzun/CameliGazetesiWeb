@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Cards from "./Cards";
+
 export default class Carousel extends Component {
   write() {
     console.log("eben");

@@ -7,8 +7,21 @@ import React, { Component } from "react";
 import Report from "./Report";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+ 
+
 export default class App extends Component {
+  
   state = { data: [], newId: 0, path: "path" , newReport : []};
+
+    
+  // sendNew = (path) => {
+   
+  //    navigate(this.state.path,{ state : this.state.newReport}
+  //    )
+  
+  // }
+   
+  
 
   async getNews() {
     await fetch("http://localhost:5500/getNews").then((response) =>
@@ -31,13 +44,12 @@ export default class App extends Component {
       .then((json) => this.setState({ newReport : json}))
       .catch((err) => console.log(err));
       console.log("new report",this.state.newReport)
-    
-
   }
 
   takeId = (id, newPath) => {
     this.state.newId = id;    
-    this.state.path = newPath.trim().replaceAll(" ", "-");
+    this.state.path = newPath;
+   //  this.sendNew(newPath)
     this.getNew();
     console.log('pathhhh',this.state.path);
     console.log('reportt',this.state.newReport);
@@ -54,6 +66,7 @@ export default class App extends Component {
   }
 
   render() {
+
     return (
       <div>
         <Navi></Navi>
@@ -71,7 +84,7 @@ export default class App extends Component {
             />
             <Route
               path={"/cameligazetesi.com/:" + this.state.path}
-              element={<Report data = {this.state.newReport} id = {this.state.newId}></Report>}
+              element={<Report reports ={this.state.data}></Report>}
             />
              <Route
               path={'*'}
