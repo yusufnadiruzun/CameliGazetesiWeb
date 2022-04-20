@@ -4,13 +4,13 @@ import NaviCategory from "./NaviCategory";
 import Carousel from "./Carousel";
 import Cards from "./Cards";
 import Report from "./Report";
+import Login from "./Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { get_all_news } from "../redux/actionTypes";
- 
-class App extends Component {
 
+class App extends Component {
   async componentWillMount() {
     await this.props.getNews();
   }
@@ -18,20 +18,37 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navi></Navi>
-        <NaviCategory></NaviCategory>
         <BrowserRouter>
           <Routes>
+          <Route
+              path="/cameligazetesi.com/login"
+              element={
+                <div>
+                 <Login></Login>
+                </div>
+              }
+            />
             <Route
               path="/cameligazetesi.com"
               element={
                 <div>
+                  <Navi></Navi>
+                  <NaviCategory></NaviCategory>
                   <Carousel></Carousel>
                   <Cards></Cards>
                 </div>
               }
             />
-            <Route path={"/cameligazetesi.com/:"} element={<Report></Report>} />
+            <Route
+              path={"/cameligazetesi.com/:"}
+              element={
+                <div>
+                  {" "}
+                  <Navi></Navi>
+                  <NaviCategory></NaviCategory> <Report></Report>
+                </div>
+              }
+            />
             <Route path={"*"} element={<div> ERROR </div>} />
           </Routes>
         </BrowserRouter>

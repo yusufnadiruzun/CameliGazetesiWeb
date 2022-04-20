@@ -7,7 +7,7 @@ function Cards() {
   const dispatch = useDispatch();
   console.log("news : ", news);
   return (
-    <div className="container  mt-2">
+    <div className="container mt-2">
       <div className="row ">
         {news.map((index) => (
           <div className="col-sm-12 col-md-6 col-lg-3 col-xl-3" key={index.id}>
