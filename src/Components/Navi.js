@@ -11,7 +11,7 @@ export default class Navi extends Component {
             <div className="container-fluid">
               <img
                 className="logoFirst"
-                src="https://scontent.fist6-2.fna.fbcdn.net/v/t1.18169-9/18194115_1636663239707409_1950421362261823333_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=2WW0PPItqu0AX8lmRIh&_nc_ht=scontent.fist6-2.fna&oh=00_AT9aGwWp7ZTRXrQSIXH62RtTIMvLYmhsn1lh96ICxnJswQ&oe=6232DADB"
+                src="logo.jpeg"
                 style={{ width: "70px", height: "70px", borderRadius: "50%" }}
               ></img>
               <a
