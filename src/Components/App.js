@@ -8,7 +8,7 @@ import Login from "./Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { get_all_news } from "../redux/actionTypes";
+import { getAllNews } from "../redux/actionTypes";
 
 class App extends Component {
   async componentWillMount() {
@@ -60,7 +60,7 @@ class App extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     getNews: () => {
-      dispatch(get_all_news());
+      dispatch(getAllNews());
     },
   };
 }

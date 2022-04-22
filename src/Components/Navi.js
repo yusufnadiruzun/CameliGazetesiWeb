@@ -10,6 +10,7 @@ export default class Navi extends Component {
           <nav className="navbar navbar-expand-lg navbar-light bg-dark" >
             <div className="container-fluid">
               <img
+              alt=""
                 className="logoFirst"
                 src="logo.jpeg"
                 style={{ width: "70px", height: "70px", borderRadius: "50%" }}
@@ -17,6 +18,7 @@ export default class Navi extends Component {
               <a
                 className="navbar-brand"
                 style={{ marginLeft: "20px", color: "white" }}
+                
                 href="#"
               >
                 Çameli Gazetesi

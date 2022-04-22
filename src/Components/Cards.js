@@ -1,6 +1,6 @@
-import React, {useEffect } from "react";
+import React from "react";
 import { useSelector ,useDispatch } from "react-redux";
-import { get_new } from "../redux/actionTypes";
+import { getNew } from "../redux/actionTypes";
 
 function Cards() {
   const { news } = useSelector((state) => state.news);
@@ -15,7 +15,7 @@ function Cards() {
               <img
                 src={index.image}
                 style={{ width: "214px", height: "214px" }}
-                onClick={() => dispatch(get_new(index.id))}
+                onClick={() => dispatch(getNew(index.id))}
                 className="card-img-top w-100"
                 alt="..."
               ></img>
