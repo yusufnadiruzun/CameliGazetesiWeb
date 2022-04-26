@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getNew } from "../redux/actionTypes";
+import { getNew } from '../../redux/actionTypes';
 
 function Cards() {
   const { news } = useSelector((state) => state.news);

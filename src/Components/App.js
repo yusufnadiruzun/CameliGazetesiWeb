@@ -1,10 +1,10 @@
 import "./App.css";
-import Navi from "./Navi";
-import NaviCategory from "./NaviCategory";
-import Carousel from "./Carousel";
-import Cards from "./Cards";
-import Report from "./Report";
-import Login from "./Login";
+import Navi from "./User/Navi";
+import NaviCategory from "./User/NaviCategory";
+import Carousel from "./User/Carousel";
+import Cards from "./User/Cards";
+import Report from "./User/Report";
+import Login from "./Admin/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
