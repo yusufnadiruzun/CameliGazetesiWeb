@@ -7,7 +7,8 @@ function Cards() {
   const { news } = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log('news',news)
+  console.log("news", news);
+
   const HandleHistory = (reportPath) => {
     let url = "/cameligazetesi.com/" + reportPath;
     navigate(url);
@@ -23,7 +24,7 @@ function Cards() {
                 src={index.image}
                 style={{ width: "214px", height: "214px" }}
                 onClick={() => {
-                  dispatch(getNew(index.id));
+                  dispatch(getNew(news, index.id));
                   HandleHistory(index.path);
                 }}
                 className="card-img-top w-100"

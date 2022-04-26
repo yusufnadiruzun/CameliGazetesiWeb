@@ -2,7 +2,7 @@ import { GET_ALL_NEWS, GET_NEW} from "../actionTypes";
 
 const default_state = {
   news : [],
-  report : {},
+  report : [],
   path : 'haber'
 };
 
@@ -11,8 +11,8 @@ const reducer = (state = default_state, action) => {
     case GET_ALL_NEWS:
       return { news:action.news};
     case GET_NEW:
-      console.log(action.report[0].path)
-    return {...state,report: action.report,path:action.report[0].path}
+      console.log(action.report.path)
+    return {...state,report: action.report,path:action.report.path}
       default:
         return state;
   }

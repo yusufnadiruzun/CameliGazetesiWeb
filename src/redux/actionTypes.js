@@ -1,32 +1,23 @@
-
-
 export const GET_NEW = "GET_NEW";
 export const GET_ALL_NEWS = "GET_ALL_NEWS";
 
-export function getNew(reportId) {
-  return async function (dispatch) {
-    
-    await fetch("http://localhost:5500/getNew", {
-      method: "POST",
-      body: JSON.stringify({ newId: reportId }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => dispatch(get_new_success(json)))
-      .catch((err) => console.log(err));
+export function getNew(news, id) {
+  return (dispatch) => {
+    let report = [];
+    for (let i = 0; i < news.length; i++) {
+      if (news[i].id === id) {
+        report = news[i];
+        dispatch(get_new_success(report));
+
+      }
+    }
   };
 }
-
-
 
 export const get_new_success = (report) => {
   return {
     type: GET_NEW,
-    report: report
-  
-    
+    report: report,
   };
 };
 
