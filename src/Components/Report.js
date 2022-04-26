@@ -1,22 +1,23 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class Report extends Component {
-  componentDidMount(){
-    console.log(this.props.data)
-    console.log(this.props.id)
-  }
+class Report extends Component {
+
+  
+
   render() {
     return (
-      /*
+      
       <div className="container">
         <div className="row mt-3">
-          {this.props.data.map(reports => (
+          {this.props.report.map(reports => (
           <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8 " >
             <h1> {reports.Desciription}</h1>
             <p className="firstP">
               {reports.report}
             </p>
             <img
+            alt=""
               src={reports.image}
               style={{ width: "100%", heigth: "400px" }}
             ></img>
@@ -25,14 +26,17 @@ export default class Report extends Component {
               {reports.report}
             </p>
             <img
+            alt=""
               src={reports.image}
               style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>{" "}
             <img
+            alt=""
               src={reports.image}
               style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>
             <img
+            alt=""
               src={reports.image}
               style={{ width: "100%", heigth: "400px", marginTop: "5px" }}
             ></img>
@@ -111,9 +115,17 @@ export default class Report extends Component {
           </div>
         </div>
       </div>
-      */
-    <div>asdklaskds</div>
+    
     );
      
   }
 }
+
+function mapStateToProps(state){
+  return {
+    report: state.report
+  }
+  
+}
+
+export default connect(mapStateToProps)(Report);

@@ -8,11 +8,18 @@ import Login from "./Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllNews } from "../redux/actionTypes";
+import { getAllNews, getNew} from "../redux/actionTypes";
 
 class App extends Component {
+
   async componentWillMount() {
     await this.props.getNews();
+    await this.props.getNew();
+    
+  }
+
+  componentDidMount() {
+    console.log("path : ", this.props.path);
   }
 
   render() {
@@ -20,11 +27,11 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <Routes>
-          <Route
-              path="/cameligazetesi.com/login"
+            <Route
+              path="/cameligazetesi.com/Login"
               element={
                 <div>
-                 <Login></Login>
+                  <Login></Login>
                 </div>
               }
             />
@@ -40,12 +47,13 @@ class App extends Component {
               }
             />
             <Route
-              path={"/cameligazetesi.com/:"}
+              path={"cameligazetesi.com/:" + this.props.path}
               element={
                 <div>
                   {" "}
                   <Navi></Navi>
-                  <NaviCategory></NaviCategory> <Report></Report>
+                  <NaviCategory></NaviCategory>
+                  <Report></Report>
                 </div>
               }
             />
@@ -62,12 +70,17 @@ function mapDispatchToProps(dispatch) {
     getNews: () => {
       dispatch(getAllNews());
     },
+    getNew :() =>{
+      dispatch(getNew())
+    }
+    
   };
 }
 
 function mapStateToProps(state) {
   return {
     news: state.getAllNewsReducer,
+    path: state.path,
   };
 }
 
