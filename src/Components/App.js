@@ -17,6 +17,7 @@ class App extends Component {
     await this.props.getNew();
     
   }
+  
 
   componentDidMount() {
     console.log("path : ", this.props.path);

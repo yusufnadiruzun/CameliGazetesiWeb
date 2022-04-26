@@ -3,18 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getNew } from "../redux/actionTypes";
 
-
-
 function Cards() {
   const { news } = useSelector((state) => state.news);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleHistory = (path) =>{
-    let url = '/cameligazetesi.com/' + path;
+  console.log('news',news)
+  const HandleHistory = (reportPath) => {
+    let url = "/cameligazetesi.com/" + reportPath;
     navigate(url);
-  }
-  
+  };
+
   return (
     <div className="container mt-2">
       <div className="row ">
@@ -24,7 +22,10 @@ function Cards() {
               <img
                 src={index.image}
                 style={{ width: "214px", height: "214px" }}
-                onClick={() =>{ dispatch(getNew(index.id)); handleHistory(index.path)} }
+                onClick={() => {
+                  dispatch(getNew(index.id));
+                  HandleHistory(index.path);
+                }}
                 className="card-img-top w-100"
                 alt="..."
               ></img>

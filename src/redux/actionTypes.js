@@ -1,3 +1,5 @@
+
+
 export const GET_NEW = "GET_NEW";
 export const GET_ALL_NEWS = "GET_ALL_NEWS";
 
@@ -16,14 +18,9 @@ export function getNew(reportId) {
       .catch((err) => console.log(err));
   };
 }
-/*
-export function changePath (reportPath) {
- setTimeout(() => {
-  window.location.assign = '/cameligazetesi.com/' + reportPath
-   
- }, 2000);
-}
-*/
+
+
+
 export const get_new_success = (report) => {
   return {
     type: GET_NEW,

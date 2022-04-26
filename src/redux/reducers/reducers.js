@@ -1,4 +1,4 @@
-import { GET_ALL_NEWS, GET_NEW,changePath} from "../actionTypes";
+import { GET_ALL_NEWS, GET_NEW} from "../actionTypes";
 
 const default_state = {
   news : [],
