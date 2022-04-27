@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getNew } from '../../redux/actionTypes';
 
 function Cards() {
-  const { news } = useSelector((state) => state.news);
+  const { news } = useSelector((state) => state.result);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log("news", news);

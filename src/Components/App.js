@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getAllNews, getNew} from "../redux/actionTypes";
+import Admin from "./Admin/Admin";
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
         <BrowserRouter>
           <Routes>
             <Route
-              path="/cameligazetesi.com/Login"
+              path="/cameligazetesi.com/login"
               element={
                 <div>
                   <Login></Login>
@@ -44,6 +45,15 @@ class App extends Component {
                   <NaviCategory></NaviCategory>
                   <Carousel></Carousel>
                   <Cards></Cards>
+                </div>
+              }
+            />
+             <Route
+              path={"cameligazetesi.com/admin"}
+              element={
+                <div>
+                  {" "}
+                  <Admin></Admin>
                 </div>
               }
             />

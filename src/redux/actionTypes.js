@@ -1,5 +1,26 @@
 export const GET_NEW = "GET_NEW";
 export const GET_ALL_NEWS = "GET_ALL_NEWS";
+export const AUTHORIZATION = "AUTHORIZATION";
+
+export function authorization(user_name, password) {
+  return async (dispatch) => {
+    await fetch("http://localhost:5500/getUser", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user_name: user_name, password: password }),
+    })
+      .then((response) => response.json())
+      .then((result) => dispatch(authorizationSuccess(result[0].user_name)))
+      .catch((err) => console.log(err));
+  };
+}
+
+export function authorizationSuccess(userName) {
+  return {
+    type: AUTHORIZATION,
+    userName: userName
+  };
+}
 
 export function getNew(news, id) {
   return (dispatch) => {
@@ -8,7 +29,6 @@ export function getNew(news, id) {
       if (news[i].id === id) {
         report = news[i];
         dispatch(get_new_success(report));
-
       }
     }
   };

@@ -18,7 +18,7 @@ export default class Navi extends Component {
               <a
                 className="navbar-brand"
                 style={{ marginLeft: "20px", color: "white" }}
-                
+                link=''
                 href="#"
               >
                 Çameli Gazetesi

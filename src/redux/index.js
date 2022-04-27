@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 const reducers = combineReducers({
-  news: allNewReducer,
+  result: allNewReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(logger, thunk));
