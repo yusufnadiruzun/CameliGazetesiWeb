@@ -1,27 +1,26 @@
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authorization } from "../../redux/actionTypes";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {isAuthorization} = useSelector((state) => state.result)
+  const { isAuthorization } = useSelector((state) => state.result);
 
-  const changePage= () =>{
-    let url = "/cameligazetesi.com/admin"  
-    navigate(url)
-  }
+  const changePage = () => {
+    let url = "/cameligazetesi.com/admin/NewsList";
+    console.log('change ici')
+    if (isAuthorization) {
+      navigate(url);
+    }
+  };
 
   const getUser = async () => {
     let userName = document.getElementById("user_name").value;
     let password = document.getElementById("password").value;
-   await dispatch(authorization(userName,password))
-
-   if(isAuthorization){
+    await dispatch(authorization(userName, password));
     changePage();
-   }
-   
-  }
+  };
 
   return (
     <div>

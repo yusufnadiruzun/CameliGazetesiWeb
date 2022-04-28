@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-export default class Navi extends Component {
 
-  render() {
+function Navi () {
+  const navigate = useNavigate();
+  const goHomePage= () =>{
+    let url = 'cameligazetesi.com'
+  
+  }
     return (
 
         <div >
@@ -18,7 +23,7 @@ export default class Navi extends Component {
               <a
                 className="navbar-brand"
                 style={{ marginLeft: "20px", color: "white" }}
-                link=''
+                onClick={() =>goHomePage()}
                 href="#"
               >
                 Çameli Gazetesi
@@ -72,5 +77,7 @@ export default class Navi extends Component {
         
       </div>
     );
-  }
+  
 }
+
+export default Navi;

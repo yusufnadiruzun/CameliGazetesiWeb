@@ -8,17 +8,15 @@ import Login from "./Admin/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getAllNews, getNew} from "../redux/actionTypes";
-import Admin from "./Admin/Admin";
-
+import { getAllNews, getNew } from "../redux/actionTypes";
+import NewsList from "./Admin/NewsList";
+import AddNewReport from "./Admin/AddNewReport";
+import CategoryList from './Admin/CategoryList'
 class App extends Component {
-
   async componentWillMount() {
     await this.props.getNews();
     await this.props.getNew();
-    
   }
-  
 
   componentDidMount() {
     console.log("path : ", this.props.path);
@@ -48,15 +46,46 @@ class App extends Component {
                 </div>
               }
             />
-             <Route
-              path={"cameligazetesi.com/admin"}
+
+            <Route
+               path="cameligazetesi.com/admin/NewsList"
+               element={
+                 <React.Fragment>
+                   <Navi></Navi>
+                   <div className="container">
+                     <div className="row">
+                       <div className="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                         <CategoryList></CategoryList>
+                       </div>
+                       <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                         <NewsList></NewsList>
+                       </div>
+                     </div>
+                   </div>
+                 </React.Fragment>
+              }
+              
+            />
+
+            <Route
+              path="cameligazetesi.com/admin/AddReport"
               element={
-                <div>
-                  {" "}
-                  <Admin></Admin>
-                </div>
+                <React.Fragment>
+                  <Navi></Navi>
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                        <CategoryList></CategoryList>
+                      </div>
+                      <div className="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                        <AddNewReport></AddNewReport>
+                      </div>
+                    </div>
+                  </div>
+                </React.Fragment>
               }
             />
+
             <Route
               path={"cameligazetesi.com/:" + this.props.path}
               element={
@@ -81,10 +110,9 @@ function mapDispatchToProps(dispatch) {
     getNews: () => {
       dispatch(getAllNews());
     },
-    getNew :() =>{
-      dispatch(getNew())
-    }
-    
+    getNew: () => {
+      dispatch(getNew());
+    },
   };
 }
 
