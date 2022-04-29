@@ -1,13 +1,15 @@
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
+import {Button} from 'reactstrap'
+import {removeReport} from '../../redux/actionTypes'
 
-import {Button, Input} from 'reactstrap'
-import "bootstrap/dist/css/bootstrap.min.css";
 function NewsList() {
 
 
   const {news} = useSelector((state) => state.result )
-  const removeReport = () =>{
-    
+  const dispatch = useDispatch();
+  
+  const remove = (id) =>{
+    dispatch(removeReport(id));
   }
   
   return (
@@ -25,8 +27,8 @@ function NewsList() {
         </thead>
         <tbody>
           {news.map(report =>
-            <tr>
-            <th scope="row">{report.id}</th>
+            <tr key= {report.id}>
+            <th scope="row">{report.id} </th>
             <td>{report.date}</td>
             <td>{report.Desciription}</td>
             <td>{report.category}</td>
@@ -34,7 +36,7 @@ function NewsList() {
             <td>
                 <Button
                   color="danger"
-                  onClick={() => removeReport() }
+                  onClick={() => remove(report.id) }
                 >
                   Sil
                 </Button>

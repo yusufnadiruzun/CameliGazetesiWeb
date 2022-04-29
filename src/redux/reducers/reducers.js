@@ -1,4 +1,4 @@
-import { GET_ALL_NEWS, GET_NEW,AUTHORIZATION} from "../actionTypes";
+import { GET_ALL_NEWS, GET_NEW,AUTHORIZATION, REMOVEREPORT} from "../actionTypes";
 
 const default_state = {
   news : [],
@@ -14,6 +14,8 @@ const reducer = (state = default_state, action) => {
       return { news:action.news};
       case AUTHORIZATION:
         return { userName: action.userName, isAuthorization: true};
+        case REMOVEREPORT:
+          return {state};
     case GET_NEW:
       console.log(action.report.path)
     return {...state,report: action.report,path:action.report.path}

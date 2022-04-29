@@ -1,6 +1,23 @@
 export const GET_NEW = "GET_NEW";
 export const GET_ALL_NEWS = "GET_ALL_NEWS";
 export const AUTHORIZATION = "AUTHORIZATION";
+export const REMOVEREPORT = 'REMOVEREPORT';
+
+export function removeReport (id) {
+  return async (dispatch) =>{
+    await fetch("http://localhost:5500/removeReport", {
+      method:'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({reportId : id})
+    }).then(response => response.json()).then(x => console.log('silme işlemi başarılı')).catch(err => console.log(err))
+  }
+}
+
+export function removeReportSuccess () {
+  return {
+    type : REMOVEREPORT
+  }
+}
 
 export function authorization(user_name, password) {
   return async (dispatch) => {
