@@ -9,7 +9,6 @@ function Login() {
 
   const changePage = () => {
     let url = "/cameligazetesi.com/admin/NewsList";
-    console.log('change ici')
     if (isAuthorization) {
       navigate(url);
     }

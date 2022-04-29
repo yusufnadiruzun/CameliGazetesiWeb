@@ -53,11 +53,7 @@ export default class NaviCategory extends Component {
                   Teknoloji
                 </a>
               </li>{" "}
-              <li className="nav-item">
-                <a className="nav-link" id="nv" href="#">
-                  Teknoloji
-                </a>
-              </li>
+            
               <li className="nav-item">
                 <a className="nav-link" id="nv" href="#">
                   Sağlık
