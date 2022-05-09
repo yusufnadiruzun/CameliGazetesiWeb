@@ -7,7 +7,7 @@ function Cards() {
   const { news } = useSelector((state) => state.result);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log("news", news);
+  
 
   const HandleHistory = (reportPath) => {
     let url = "/cameligazetesi.com/" + reportPath;
