@@ -12,10 +12,11 @@ import { getAllNews, getNew } from "../redux/actionTypes";
 import NewsList from "./Admin/NewsList";
 import AddNewReport from "./Admin/AddNewReport";
 import CategoryList from './Admin/CategoryList'
+
 class App extends Component {
+
   async componentWillMount() {
     await this.props.getNews();
-    await this.props.getNew();
   }
 
   componentDidMount() {
@@ -85,7 +86,7 @@ class App extends Component {
                 </React.Fragment>
               }
             />
-
+{/*             
             <Route
               path={"cameligazetesi.com/:" + this.props.path}
               element={
@@ -96,7 +97,7 @@ class App extends Component {
                   <Report></Report>
                 </div>
               }
-            />
+            /> */}
             <Route path={"*"} element={<div> ERROR </div>} />
           </Routes>
         </BrowserRouter>
@@ -118,8 +119,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    news: state.getAllNewsReducer,
-    path: state.path,
+    news: state.result.getAllNewsReducer,
+    path: state.result.path,
   };
 }
 

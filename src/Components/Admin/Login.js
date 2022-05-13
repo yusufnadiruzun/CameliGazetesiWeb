@@ -1,31 +1,42 @@
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useSelector} from "react-redux";
 import { authorization } from "../../redux/actionTypes";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const dispatch = useDispatch();
+function Login(props) {
+ 
+ 
   const navigate = useNavigate();
-  const { isAuthorization } = useSelector((state) => state.result);
-
-  const changePage = () => {
+  const a = props.giris;
+  console.log( 'isAuthorization  ::: ',a)
+  let sayac = 0;
+  sayac++;
+  console.log(sayac)
+  const changePage =  () => {
+    console.log("changeici")
     let url = "/cameligazetesi.com/admin/NewsList";
-    if (isAuthorization) {
+    console.log( 'isAuthorization  ::: ',a)
+
+    if (props.giris) {
+      console.log("isauthorization")
       navigate(url);
     }
   };
 
-  const getUser = async () => {
+  const getUser = async () =>  {
     let userName = document.getElementById("user_name").value;
     let password = document.getElementById("password").value;
-    await dispatch(authorization(userName, password));
+    console.log("üst")
+    await props.asdauthorization(userName,password);
+    
+    console.log("alt", props.giris)
     changePage();
   };
-
+ 
   return (
     <div>
+      <p> asd sad adsa</p>
       <div className="container">
         <div className="row ">
-          <div className="col-3"></div>
           <div className="col-5 mt-5" style={{ border: "groove" }}>
             <div id="rt" style={{ display: "flex", justifyContent: "center" }}>
               <img
@@ -72,7 +83,7 @@ function Login() {
             >
               <button
                 style={{ textAlign: "center", width: "60%" }}
-                onClick={() => getUser()}
+                onClick={ async () => await getUser()}
                 type="button"
                 className="btn btn-outline-primary "
               >
@@ -86,4 +97,19 @@ function Login() {
     </div>
   );
 }
-export default Login;
+
+function mapDispatchToProps(dispatch) {
+  return {
+    asdauthorization: (userName, password) => {
+      dispatch(authorization(userName, password));
+    }
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    giris: state.result.isAuthorization,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(Login);

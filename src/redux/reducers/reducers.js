@@ -13,7 +13,7 @@ const reducer = (state = default_state, action) => {
     case GET_ALL_NEWS:
       return { news:action.news};
       case AUTHORIZATION:
-        return { userName: action.userName, isAuthorization: true};
+        return { ...state,userName: action.userName, isAuthorization: true};
         case REMOVEREPORT:
           return {state};
     case GET_NEW:
